@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt")
 
 //REGISTER USER
 router.post("/register", async (req, res) => {
-
     try {
         //genrate new password
         const salt = await bcrypt.genSalt(10)
@@ -22,6 +21,7 @@ router.post("/register", async (req, res) => {
         res.status(200).json(user)
     } catch (error) {
         res.status(500).json(error)
+        console.log(error);
     }
 })
 
